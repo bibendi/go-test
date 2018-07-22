@@ -4,4 +4,6 @@ services:
   app:
     image: golang:$GO_IMAGE_TAG
     command: bash
-    working_dir: /app
+    working_dir: /go/src/github.com/bibendi/go-test
+    volumes:
+      - ../../../..:/go

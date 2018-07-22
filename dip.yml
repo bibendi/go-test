@@ -2,12 +2,10 @@ version: '1'
 
 environment:
   GO_IMAGE_TAG: "1.10"
-  COMPOSE_FILE_EXT: development
 
 compose:
   files:
     - docker-compose.yml
-    - docker-compose.${COMPOSE_FILE_EXT}.yml
 
 interaction:
   sh:
@@ -18,4 +16,4 @@ interaction:
     command: go
 
 provision:
-  - echo 'Ok'
+  - dip go get -u github.com/golang/dep/cmd/dep
