@@ -1,0 +1,21 @@
+version: '1'
+
+environment:
+  GO_IMAGE_TAG: "1.10"
+  COMPOSE_FILE_EXT: development
+
+compose:
+  files:
+    - docker-compose.yml
+    - docker-compose.${COMPOSE_FILE_EXT}.yml
+
+interaction:
+  sh:
+    service: app
+
+  go:
+    service: app
+    command: go
+
+provision:
+  - echo 'Ok'
